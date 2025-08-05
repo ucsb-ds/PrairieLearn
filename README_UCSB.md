@@ -77,4 +77,13 @@ Therefore, the best currently available solution seems to be this:
   The idea is that collaborators are allowed to  "push", while everyone is allowed to "pull"
   (since the image is "public", and must be in order for PrairieLearn to be able to access it.
 
-   
+This screenshot shows the page where you would manage your docker image.  Note that there is a "collaborators" tab:
+
+The URL is: <https://hub.docker.com/repository/docker/phtcon/grader-python/image-management>
+
+<img width="1246" height="675" alt="image" src="https://github.com/user-attachments/assets/c8904c71-0039-4daf-b99f-0101d21b5cd9" />
+
+Add a collborator by specfying their docker hub login.   You can remove collaborators by clicking the delete icon (trashcan):
+
+<img width="625" height="434" alt="image" src="https://github.com/user-attachments/assets/79f7bc3f-9b0a-40b7-a581-41b9d89ef2fc" />
+

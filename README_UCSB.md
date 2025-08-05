@@ -24,10 +24,39 @@ To build the docker image:
    If you are unsure, go to a different directory, and do `pip install packageName` followed by `pip freeze`, and it will show you the correct line in the correct syntax.
 7. Create the docker image with this command.  Here, the `phtcon` is standing in place for your docker login
    ```
-   docker buildx build --platform linux/amd64,linux/arm64 -t rachit182/grader-python:latest --push .
+   docker buildx build --platform linux/amd64,linux/arm64 -t phtcon/grader-python:latest --push .
    ```
    Note that the `linux/amd64` part is important.  If you leave this out it will not work in the PrairieLearn environment.  The `linux/arm64` part is
    only there so that the Docker image can also be run separately on Macs with the newer "Apple Silicon" chips.   You may add other architectures if
    needed for the dev team, but only the `linux/amd64` part is necessary for running directly on PrairieLearn.
-8. When this command is complete...
+8. When this command is complete, you will have an image named, for example, `phtcon/grader-python:latest` than can be mentioned in the files for a
+   PrairieLearn question that requires the specific environment for UCSB CMPSC 5A/5B.
+
+   For example, you would put the line in the correct spot (illustrated below) in the `info.json` file
+   when creating a PrairieLearn question.
+
+   ```json
+      "image": "phtcon/grader-python:latest",
+   ```
+
+   This shows the full context of the contents of `info.json`, including where this line goes:
+   
+   ```json
+   {
+    "uuid": "30fcdc49-3692-47dc-85a2-this-must-be-your-own-unique-valid-uuid",
+    "title": "Show Labels",
+    "topic": "6. Tables",
+    "tags": ["code", "basic table ops", "datascience lib"],
+    "type": "v3",
+    "singleVariant": true,
+    "gradingMethod": "External",
+    "externalGradingOptions": {
+      "enabled": true,
+      "image": "phtcon/grader-python:latest",
+      "entrypoint": "/python_autograder/run.sh",
+      "timeout": 20
+    }
+  }
+  ```
+   
    

@@ -58,5 +58,23 @@ To build the docker image:
     }
   }
   ```
-   
+
+## Sharing the image with a development team
+
+Note that the Docker repository created above, namely `phtcon/grader-python`, is associated with a specific individual account (namely `phtcon`, which is
+associated with Phill Conrad <phtcon@ucsb.edu>, who led the initial development effort to make PrarieLearn questions for the Data 8 curriculum as taught
+in CMPSC 5A/5B at UC Santa Barbara.
+
+(Note: in the paragraph above, we are referring to a *Docker repository*, not a Github repository).
+
+The question arises: how do you share this with an entire development team that may change from term to term, as different instructors teach the course, and as those different instructor employ various Teaching Assistants, Learning Assistants, and other staff to help with developing PrairieLearn questions?
+
+One might initially propose creating a Docker "Organization", similar to a Github Organization (for example, `ucsb-ds` is a Github Organization shared by various faculty from both the Computer Science department, and the PSTAT department at UCSB).  Unfortunately, it no longer seems to be possible to create a Docker organization on a "free" plan, the way it is possible for Github.   
+
+Therefore, the best currently available solution seems to be this:
+* Create the image under the personal account of a faculty member that will likely be around for a while.
+* Use the features of Docker to add/delete "collaborators" that are other instructors, TAs, LAs, etc.
+  The idea is that collaborators are allowed to  "push", while everyone is allowed to "pull"
+  (since the image is "public", and must be in order for PrairieLearn to be able to access it.
+
    
